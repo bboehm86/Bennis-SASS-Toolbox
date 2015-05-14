@@ -1,0 +1,119 @@
+/// Mixin to use in `@media` elements to hide an element but make it accessible to screenreaders
+///
+/// @author Benjamin Boehm
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @example scss - Usage
+///   .SomeClass {
+///     @include visuallyhidden();
+///   }
+///
+/// @example css - CSS output
+///   .SomeClass {
+///      position: absolute;
+///      overflow: hidden;
+///      clip: rect(0 0 0 0);
+///      height: 1px; width: 1px;
+///      margin: -1px; padding: 0; border: 0;
+///   }
+///
+@mixin visuallyhidden(){
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+/// Placeholder hide an element but make it accessible to screenreaders
+/// > *DO NOT* use in `@media` elements
+///
+/// @author Benjamin Boehm
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @example scss - Usage
+///   .SomeClass {
+///     @extend %visuallyhidden;
+///   }
+///
+/// @example css - CSS output
+///   .visuallyhidden, .SomeClass {
+///      position: absolute;
+///      overflow: hidden;
+///      clip: rect(0 0 0 0);
+///      height: 1px; width: 1px;
+///      margin: -1px; padding: 0; border: 0;
+///   }
+%visuallyhidden {
+  @include visuallyhidden();
+}
+
+/// Clearfix - For modern browsers
+/// 1. The space content is one way to avoid an Opera bug when the
+///    contenteditable attribute is included anywhere else in the document.
+///    Otherwise it causes space to appear at the top and bottom of elements
+///    that are clearfixed.
+/// 2. The use of `table` rather than `block` is only necessary if using
+///    `:before` to contain the top-margins of child elements.
+///
+/// @author Nicolas Gallagher
+///
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @example scss - Usage
+///   .SomeClass {
+///     @include clearfix();
+///   }
+///
+/// @example css - CSS output
+///   .SomeClass::before,
+///   .SomeClass::after {
+///       content: " "; // 1
+///       display: table; // 2
+///   }
+///   .SomeClass::after {
+///       clear: both;
+///   }
+@mixin clearfix() {
+  &::before,
+  &::after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+/// Placeholder for clearfix
+/// > *DO NOT* use in `@media` elements
+///
+/// @author Nicolas Gallagher
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @example scss - Usage
+///   .SomeClass {
+///     @extend %clearfix;
+///   }
+///
+/// @example css - CSS output
+///   .SomeClass::before,
+///   .SomeClass::after {
+///       content: " ";
+///       display: table;
+///   }
+///   .SomeClass::after {
+///       clear: both;
+///   }
+%clearfix {
+  @include clearfix();
+}

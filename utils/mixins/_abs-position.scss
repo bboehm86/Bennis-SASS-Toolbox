@@ -1,0 +1,44 @@
+// **------------------------------------* \\
+// * MIXIN: abs-position()
+// **------------------------------------* \\
+
+/// Mixin to set position top absolute and set distances
+///
+/// @author Benjamin Boehm
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @param {Number | String} $top [na]
+/// @param {Number | String} $right [na]
+/// @param {Number | String} $bottom [na]
+/// @param {Number | String} $left [na]
+///
+/// @example scss - Usage
+///   .absPos {
+///     @include abs-position(5px, na, na, 15px);
+///   }
+///
+/// @example css - CSS output
+///   .absPos {
+///     position: absolute;
+///     top: 5px;
+///     left: 15px;
+///   }
+///
+@mixin abs-position($top: na, $right: na, $bottom: na, $left: na) {
+  position: absolute;
+
+  @if $top != na {
+    top: $top;
+  }
+  @if $right != na {
+    right: $right;
+  }
+  @if $bottom != na {
+    bottom: $bottom;
+  }
+  @if $left != na {
+    left: $left;
+  }
+}

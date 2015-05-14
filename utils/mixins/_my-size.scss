@@ -1,0 +1,56 @@
+// **------------------------------------* \\
+// * MIXIN: size()
+// **------------------------------------* \\
+
+/// HELPER function for `my-size()` Mixin
+///
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Benjamin Böhm](https://github.com/bboehm86 "GitHub Page")
+///
+/// @todo
+///
+/// @param {Number | String} $unitCheck - Value to check
+@function my-size-unit-check( $unitCheck ){
+  @if unit( $unitCheck ) == "em" or unit( $unitCheck ) == "%" {
+    $unitSize: $unitCheck;
+  } @else if $useRem {
+    $unitSize: rem( $unitCheck );
+  } @else {
+    $unitSize: $unitCheck;
+  }
+  @return $unitSize;
+}
+
+/// Set `height` and `width` values
+/// @access public
+/// @group Structure Helpers
+///
+/// @param {String} $size [] - sizes to apply
+///
+/// @example scss - Usage
+///  .50-block {
+///    @include size(50%);
+///    /* other CSS declarations */
+///  }
+///
+/// @example css - CSS output
+///  .50-block {
+///    height: 50%;
+///    width: 50%;
+///    /* other CSS declarations */
+///  }
+@mixin my-size( $size ) {
+
+  @if length($size) == 1 {
+    height: my-size-unit-check( $size );
+    width:  my-size-unit-check( $size );
+  }
+  @else if length($size) == 2 {
+
+    height: my-size-unit-check( nth( $size, 2 ) );
+    width:  my-size-unit-check( nth( $size, 1 ) );
+  }
+
+}

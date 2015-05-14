@@ -1,0 +1,114 @@
+/// Divides $input by $baseFontSize and appends "rem" unit
+///  $input is processed via unitize() if it contains multiple values
+///
+/// @author Justin Skolnick
+///
+/// @link https://github.com/justinskolnick/unitize/blob/master/_unitize.scss
+///
+/// @access public
+///
+/// @param {Number} $input - Pixel value
+///
+/// @example scss - Usage
+///   .MyRemClass { padding: rem(32); }
+///
+/// @example css - CSS output
+///   .MyRemClass { padding: 2rem; }
+///
+@function rem($input) {
+  $output: null;
+
+  @if type-of($input) == list {
+    $output: unitize($input, rem);
+  } @else {
+    $output: (strip-unit($input) / strip-unit($baseFontSize)) * 1rem;
+  }
+
+  @return $output;
+}
+
+///  Divides $input by the given base $font-size param and appends "em" unit
+///  $input is processed via unitize() if it contains multiple values
+///
+/// @author Justin Skolnick
+///
+/// @link https://github.com/justinskolnick/unitize/blob/master/_unitize.scss
+///
+/// @access public
+///
+/// @param {Number} $input                                - Unitless Pixel value
+/// @param {Number} $font-size [$unitless-font-size-base] - Defaults to value of $unitless-font-size-base
+///
+/// @example scss - Usage
+///   .MyEmClass { padding: em(18, 12); }
+///   .MyEmClass2 { padding: em(20); }
+///
+/// @example css - CSS output
+///   .MyEmClass { padding: 1.5em; }
+///   .MyEmClass2 { padding: 1.66667em; }
+///
+@function em($input, $font-size: $unitless-font-size-base) {
+  $output: null;
+
+  @if type-of($input) == list {
+    $output: unitize($input, em, $font-size);
+  } @else {
+    $output: (strip-unit($input) / strip-unit($baseFontSize)) * 1em;
+  }
+
+  @return $output;
+}
+
+
+///  Converts the unitless numerical values in a given SASS list to values in a given unit
+///  > See the SASS_REFERENCE for a description and examples of the "list" data type:
+///    http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#lists
+///
+///  Accepts optional $font-size param (defaulting to $unitless-font-size-base) for "em" conversions
+///  ### NOTES:
+///    > CSS font shorthand (e.g., "bold 12/18 Helvetica, Arial, sans-serif") is not yet supported;
+///
+///    > see "Division and /":
+///    http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#division-and-slash
+///
+/// @author Justin Skolnick
+///
+/// @link https://github.com/justinskolnick/unitize/blob/master/_unitize.scss
+///
+/// @access public
+///
+/// @param {String} $list                        - Unitless Pixel value
+/// @param {String} $unit [px]                   - Unit
+/// @param {Number} $font-size [$unitless-font-size-base] - Defaults to value of $unitless-font-size-base
+///
+/// @example scss - Usage
+///   See CSS rulesets below the function
+///
+@function unitize($list, $unit: px, $font-size: strip-unit($baseFontSize)) {
+  $output: null;                          // declare $output; to return new concatenated list
+
+  @each $value in $list {                 // iterate through $list
+
+    @if type-of($value) == number {       // skip strings
+
+      $value: $value / ($value * 0 + 1);
+
+      @if unitless($value) {              // respect values already assigned units
+
+        @if $unit == rem {                // rem conversions
+          $value: rem($value);
+        } @else if $unit == em {          // em conversions
+          $value: em($value, $font-size);
+        } @else {                         // everything else avoids conversion
+          $value: $value + $unit;
+        }
+
+      }
+
+    }
+
+    $output: append($output, $value);     // concatenate values
+  }
+
+  @return $output;
+}

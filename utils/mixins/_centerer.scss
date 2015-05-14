@@ -1,0 +1,53 @@
+// **------------------------------------* \\
+// * MIXIN: centerer()
+// **------------------------------------* \\
+
+/// Center elements using translate method (element used as boundries has to be pos.: abs. or rel.)
+/// @access public
+/// @group Structure Helpers
+///
+/// @param {Bool} $horizontal [true] - horizontal centering?
+/// @param {Bool} $vertical [false]  - vertical centering?
+/// @param {Bool} $is3d [false]      - make element `transform3d()`
+///
+/// @example scss - Usage
+///  .block {
+///    @include centerer();
+///    /* other CSS declarations */
+///  }
+///
+/// @example css - CSS output
+///  .block {
+///    position: absolute;
+///    top: 50%;
+///    left: 50%;
+///    transform: translate(-50%, -50%);
+///    /* other CSS declarations */
+///  }
+@mixin centerer($h: true, $v: false, $is3d: false) {
+  position: absolute;
+
+  @if $h and $v {
+    top: 50%;
+    left: 50%;
+    @if $is3d {
+      transform: translate3d(-50%, -50%, 0);
+    } @else {
+      transform: translate(-50%, -50%);
+    }
+  } @else if $h {
+    left: 50%;
+    @if $is3d {
+      transform: translate3d(-50%, 0, 0);
+    } @else {
+      transform: translate(-50%, 0);
+    }
+  } @else if $v {
+    top: 50%;
+    @if $is3d {
+      transform: translate3d(0, -50%, 0);
+    } @else {
+      transform: translate(0, -50%);
+    }
+  }
+}

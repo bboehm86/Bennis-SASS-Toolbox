@@ -1,0 +1,21 @@
+/// Divides $input by $base-font-size and appends "rem" unit
+///  $input is processed via unitize() if it contains multiple values
+///
+/// @author Hugo Giraudel
+///
+/// @link http://hugogiraudel.com/2013/08/12/sass-functions/
+///
+/// @access public
+///
+/// @param {Number} $value - Value to strip
+///
+/// @example scss - Usage
+///   $length : 42em;
+///   $int    : strip-unit($length);
+///
+/// @example css - CSS output
+///   $int    : 42;
+///
+@function strip-unit($value) {
+  @return $value / ($value * 0 + 1);
+}

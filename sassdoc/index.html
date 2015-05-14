@@ -1,0 +1,330 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>SassDoc</title><link rel="stylesheet" href="assets/css/main.css"><link href="http://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="SassDoc - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="Release the docs!"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title">SassDoc</h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="settings"><a href="#settings">settings</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="settings-variable"><a href="#settings-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="colorMatches" data-type="variable"><a href="#variable-colorMatches">colorMatches</a></li><li class="sidebar__item sassdoc__item" data-name="colorFitThreshold" data-type="variable"><a href="#variable-colorFitThreshold">colorFitThreshold</a></li><li class="sidebar__item sassdoc__item" data-name="colorFitAmountDarken" data-type="variable"><a href="#variable-colorFitAmountDarken">colorFitAmountDarken</a></li><li class="sidebar__item sassdoc__item" data-name="colorFitAmountLighten" data-type="variable"><a href="#variable-colorFitAmountLighten">colorFitAmountLighten</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="structure helpers"><a href="#structure helpers">structure helpers</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="structure helpers-mixin"><a href="#structure helpers-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="visuallyhidden" data-type="mixin"><a href="#mixin-visuallyhidden">visuallyhidden</a></li><li class="sidebar__item sassdoc__item" data-name="clearfix" data-type="mixin"><a href="#mixin-clearfix">clearfix</a></li><li class="sidebar__item sassdoc__item" data-name="abs-position" data-type="mixin"><a href="#mixin-abs-position">abs-position</a></li><li class="sidebar__item sassdoc__item" data-name="b" data-type="mixin"><a href="#mixin-b">b</a></li><li class="sidebar__item sassdoc__item" data-name="element" data-type="mixin"><a href="#mixin-element">element</a></li><li class="sidebar__item sassdoc__item" data-name="modifier" data-type="mixin"><a href="#mixin-modifier">modifier</a></li><li class="sidebar__item sassdoc__item" data-name="centerer" data-type="mixin"><a href="#mixin-centerer">centerer</a></li><li class="sidebar__item sassdoc__item" data-name="my-size" data-type="mixin"><a href="#mixin-my-size">my-size</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="structure helpers-placeholder"><a href="#structure helpers-placeholder">placeholders</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="visuallyhidden" data-type="placeholder"><a href="#placeholder-visuallyhidden">visuallyhidden</a></li><li class="sidebar__item sassdoc__item" data-name="clearfix" data-type="placeholder"><a href="#placeholder-clearfix">clearfix</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="structure helpers-variable"><a href="#structure helpers-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="bemElementSeparator" data-type="variable"><a href="#variable-bemElementSeparator">bemElementSeparator</a></li><li class="sidebar__item sassdoc__item" data-name="bemModifierSeparator" data-type="variable"><a href="#variable-bemModifierSeparator">bemModifierSeparator</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="structure helpers-function"><a href="#structure helpers-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="containsModifier" data-type="function"><a href="#function-containsModifier">containsModifier</a></li><li class="sidebar__item sassdoc__item" data-name="selectorToString" data-type="function"><a href="#function-selectorToString">selectorToString</a></li><li class="sidebar__item sassdoc__item" data-name="getBlock" data-type="function"><a href="#function-getBlock">getBlock</a></li><li class="sidebar__item sassdoc__item" data-name="my-size-unit-check" data-type="function"><a href="#function-my-size-unit-check">my-size-unit-check</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-name="color-fit" data-type="function"><a href="#function-color-fit">color-fit</a></li><li class="sidebar__item sassdoc__item" data-name="strip-unit" data-type="function"><a href="#function-strip-unit">strip-unit</a></li><li class="sidebar__item sassdoc__item" data-name="rem" data-type="function"><a href="#function-rem">rem</a></li><li class="sidebar__item sassdoc__item" data-name="em" data-type="function"><a href="#function-em">em</a></li><li class="sidebar__item sassdoc__item" data-name="unitize" data-type="function"><a href="#function-unitize">unitize</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="settings"><div class="container">settings</div></h1><section class="main__sub-section" id="settings-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="variable-colorMatches"><h3 class="item__heading"><a class="item__name" href="#variable-colorMatches">colorMatches</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$colorMatches: ( ) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Map to set <em>manualy</em> <strong>contrast colors</strong> for <strong>color-fit()</strong> function</p><blockquote><p><strong>DON&#39;T</strong> use <em>quotes</em>! The value won&#39;t be recognised as <code>$color</code></p></blockquote></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code> or <code>Variable</code></p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>$colorMatches: (
+  #fff: #0c05b5,
+  #000: #333
+};</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-color-fit"><code>color-fit</code></a></li></ul></section><section class="main__item container item" id="variable-colorFitThreshold"><h3 class="item__heading"><a class="item__name" href="#variable-colorFitThreshold">colorFitThreshold</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$colorFitThreshold: 68% !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set default <strong>threshold</strong> for lighten or darken colors in <strong>color-fit()</strong> function</p></div><h3 class="item__sub-heading">Type</h3><p><code>Variable</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-color-fit"><code>color-fit</code></a></li></ul></section><section class="main__item container item" id="variable-colorFitAmountDarken"><h3 class="item__heading"><a class="item__name" href="#variable-colorFitAmountDarken">colorFitAmountDarken</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$colorFitAmountDarken: 60% !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the default amount of <strong>darken</strong>ing fot the colors in <strong>color-fit()</strong> function</p></div><h3 class="item__sub-heading">Type</h3><p><code>Variable</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-color-fit"><code>color-fit</code></a></li></ul></section><section class="main__item container item" id="variable-colorFitAmountLighten"><h3 class="item__heading"><a class="item__name" href="#variable-colorFitAmountLighten">colorFitAmountLighten</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$colorFitAmountLighten: 50% !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the default amount of <strong>lighten</strong>ing fot the colors in <strong>color-fit()</strong> function</p></div><h3 class="item__sub-heading">Type</h3><p><code>Variable</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-color-fit"><code>color-fit</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="structure helpers"><div class="container">structure helpers</div></h1><section class="main__sub-section" id="structure helpers-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixin-visuallyhidden"><h3 class="item__heading"><a class="item__name" href="#mixin-visuallyhidden">visuallyhidden</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin visuallyhidden() { 
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+ }" data-collapsed="@mixin visuallyhidden() { ... }"><code>@mixin visuallyhidden() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin to use in <code>@media</code> elements to hide an element but make it accessible to screenreaders</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.SomeClass {
+  @include visuallyhidden();
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.SomeClass {
+   position: absolute;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   height: 1px; width: 1px;
+   margin: -1px; padding: 0; border: 0;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#placeholder-visuallyhidden"><code>visuallyhidden</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Benjamin Boehm</p></li></ul></section><section class="main__item container item" id="mixin-clearfix"><h3 class="item__heading"><a class="item__name" href="#mixin-clearfix">clearfix</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin clearfix() { 
+  &amp;::before,
+  &amp;::after {
+    content: &quot; &quot;; // 1
+    display: table; // 2
+  }
+  &amp;::after {
+    clear: both;
+  }
+ }" data-collapsed="@mixin clearfix() { ... }"><code>@mixin clearfix() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Clearfix - For modern browsers</p><ol><li>The space content is one way to avoid an Opera bug when the contenteditable attribute is included anywhere else in the document. Otherwise it causes space to appear at the top and bottom of elements that are clearfixed.</li><li>The use of <code>table</code> rather than <code>block</code> is only necessary if using <code>:before</code> to contain the top-margins of child elements.</li></ol></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.SomeClass {
+  @include clearfix();
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.SomeClass::before,
+.SomeClass::after {
+    content: &quot; &quot;; // 1
+    display: table; // 2
+}
+.SomeClass::after {
+    clear: both;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[placeholder]</span> <a href="#placeholder-clearfix"><code>clearfix</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://nicolasgallagher.com/micro-clearfix-hack/">http://nicolasgallagher.com/micro-clearfix-hack/</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Nicolas Gallagher</p></li></ul></section><section class="main__item container item" id="mixin-abs-position"><h3 class="item__heading"><a class="item__name" href="#mixin-abs-position">abs-position</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin abs-position($top: na, $right: na, $bottom: na, $left: na) { 
+  position: absolute;
+
+  @if $top != na {
+    top: $top;
+  }
+  @if $right != na {
+    right: $right;
+  }
+  @if $bottom != na {
+    bottom: $bottom;
+  }
+  @if $left != na {
+    left: $left;
+  }
+ }" data-collapsed="@mixin abs-position($top: na, $right: na, $bottom: na, $left: na) { ... }"><code>@mixin abs-position($top: na, $right: na, $bottom: na, $left: na) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin to set position top absolute and set distances</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$top</code></th><td data-label="desc">&mdash;<span class="visually-hidden">none</span></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>na</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$right</code></th><td data-label="desc">&mdash;<span class="visually-hidden">none</span></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>na</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$bottom</code></th><td data-label="desc">&mdash;<span class="visually-hidden">none</span></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>na</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$left</code></th><td data-label="desc">&mdash;<span class="visually-hidden">none</span></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>na</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.absPos {
+  @include abs-position(5px, na, na, 15px);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.absPos {
+  position: absolute;
+  top: 5px;
+  left: 15px;
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Benjamin Boehm</p></li></ul></section><section class="main__item container item" id="mixin-b"><h3 class="item__heading"><a class="item__name" href="#mixin-b">b</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin b() { 
+  .#{$block} {
+    @content;
+  }
+ }" data-collapsed="@mixin b() { ... }"><code>@mixin b() { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).<h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></p></section><section class="main__item container item" id="mixin-element"><h3 class="item__heading"><a class="item__name" href="#mixin-element">element</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin element($element) { 
+  $myParent: &amp;;
+  $myParentLast: nth( $myParent, length($myParent) );
+  $isHover:  str-index( selectorToString($myParent) , hover );
+  $isHoverMod:  str-index( selectorToString($myParentLast) , hover );
+  $isNested: str-index( selectorToString($myParent) , &quot; &quot; );
+  $isNestedMod: str-index( selectorToString($myParentLast) , &quot; &quot; );
+
+  @at-root {
+    @if containsModifier($myParent) {
+      //      $myParent: nth(&amp;, length(&amp;));
+      @if $isHoverMod {
+        $myParentBlock: str-slice(nth($myParentLast, 1), 1, -7);
+
+        #{$myParent} #{$myParentBlock+$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&amp;} */ }
+          @content;
+        }
+
+      } @else {
+
+        @if $isNestedMod {
+          #{$myParentLast+$bemElementSeparator+$element} {
+            @if $bemDebugClasses { /* #{&amp;} */ }
+            @content;
+          }
+        } @else {
+          $block: getBlock( selectorToString($myParent) );
+          &amp; .#{$block+$bemElementSeparator+$element} {
+            @if $bemDebugClasses { /* #{&amp;} */ }
+            @content;
+          }
+        }
+
+      }
+    } @else {
+      @if $isHover and not $isNested {
+        $myParent: str-slice( selectorToString($myParent) , 1, -8); // 6 chars (:hover) + brackets
+
+        &amp; #{$myParent}#{$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&amp;} */ }
+          @content;
+        }
+      } @else {
+        &amp;#{$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&amp;} */ }
+          @content;
+        }
+      }
+
+    }
+  }
+ }" data-collapsed="@mixin element($element) { ... }"><code>@mixin element($element) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Block Element</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$element</code></th><td data-label="desc"><p>Elements name</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).<h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.block {
+  /* CSS declarations for `.block` */
+  @include element(&#39;element&#39;) {
+     /* CSS declarations for `.block__element` */
+  }
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.block {
+  /* CSS declarations for `.block` */
+  .block__element {
+     /* CSS declarations for `.block__element` */
+  }
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-selectorToString"><code>selectorToString</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-containsModifier"><code>containsModifier</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-getBlock"><code>getBlock</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-bemElementSeparator"><code>bemElementSeparator</code></a></li></ul><h3 class="item__sub-heading">TODO's</h3><ul class="list-unstyled"><li><ul><li>Fix nesting in hover eg: <code>.bem-test:hover .bem-test--M11</code> should be <code>.bem-test--M11.bem-test:hover</code><ul><li>Fix deep nesting in hover eg: <code>.bem-test:hover .bem-test--M11 .bem-test__E11 .bem-test__E21</code> should be <code>.bem-test--M11.bem-test:hover .bem-test__E11__E21</code></li></ul></li></ul></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Original: <a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></p></section><section class="main__item container item" id="mixin-modifier"><h3 class="item__heading"><a class="item__name" href="#mixin-modifier">modifier</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin modifier($modifier) { 
+
+  $myParent: selectorToString(&amp;);
+  $isHover:  str-index( $myParent , hover );
+  $isNested: str-index( $myParent , &quot; &quot; );
+
+  @at-root {
+    @if $isHover and not $isNested {
+      $myParent: selectorToString(nth($myParent, length($myParent)));
+      $myParent: str-slice($myParent, 1, -7);
+
+      &amp; .#{$myParent}#{$bemModifierSeparator+$modifier} {
+        @if $bemDebugClasses { /* #{&amp;} */ }
+        @content;
+      }
+    } @else {
+      &amp;#{$bemModifierSeparator+$modifier} {
+        @if $bemDebugClasses { /* #{&amp;} */ }
+        @content;
+      }
+    }
+  }
+ }" data-collapsed="@mixin modifier($modifier) { ... }"><code>@mixin modifier($modifier) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Block Modifier</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$modifier</code></th><td data-label="desc"><p>Modifiers name</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).<h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.block {
+  /* CSS declarations for `.block` */
+  @include modifier(&#39;modifier&#39;) {
+     /* CSS declarations for `.block--modifier */
+  }
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.block {
+  /* CSS declarations for `.block` */
+  .block--modifier {
+     /* CSS declarations for `.block--modifier */
+  }
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-selectorToString"><code>selectorToString</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-bemModifierSeparator"><code>bemModifierSeparator</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></p></section><section class="main__item container item" id="mixin-centerer"><h3 class="item__heading"><a class="item__name" href="#mixin-centerer">centerer</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin centerer($horizontal: true, $vertical: false, $is3d: false) { 
+  position: absolute;
+
+  @if $h and $v {
+    top: 50%;
+    left: 50%;
+    @if $is3d {
+      transform: translate3d(-50%, -50%, 0);
+    } @else {
+      transform: translate(-50%, -50%);
+    }
+  } @else if $h {
+    left: 50%;
+    @if $is3d {
+      transform: translate3d(-50%, 0, 0);
+    } @else {
+      transform: translate(-50%, 0);
+    }
+  } @else if $v {
+    top: 50%;
+    @if $is3d {
+      transform: translate3d(0, -50%, 0);
+    } @else {
+      transform: translate(0, -50%);
+    }
+  }
+ }" data-collapsed="@mixin centerer($horizontal: true, $vertical: false, $is3d: false) { ... }"><code>@mixin centerer($horizontal: true, $vertical: false, $is3d: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Center elements using translate method (element used as boundries has to be pos.: abs. or rel.)</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$horizontal</code></th><td data-label="desc"><p>horizontal centering?</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>true</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$vertical</code></th><td data-label="desc"><p>vertical centering?</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$is3d</code></th><td data-label="desc"><p>make element <code>transform3d()</code></p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.block {
+  @include centerer();
+  /* other CSS declarations */
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.block {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* other CSS declarations */
+}</code></pre></div></section><section class="main__item container item" id="mixin-my-size"><h3 class="item__heading"><a class="item__name" href="#mixin-my-size">my-size</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin my-size($size) { 
+
+  @if length($size) == 1 {
+    height: my-size-unit-check( $size );
+    width:  my-size-unit-check( $size );
+  }
+  @else if length($size) == 2 {
+
+    height: my-size-unit-check( nth( $size, 2 ) );
+    width:  my-size-unit-check( nth( $size, 1 ) );
+  }
+
+ }" data-collapsed="@mixin my-size($size) { ... }"><code>@mixin my-size($size) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set <code>height</code> and <code>width</code> values</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>sizes to apply</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.50-block {
+  @include size(50%);
+  /* other CSS declarations */
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.50-block {
+  height: 50%;
+  width: 50%;
+  /* other CSS declarations */
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-my-size-unit-check"><code>my-size-unit-check</code></a></li></ul></section></section><section class="main__sub-section" id="structure helpers-placeholder"><h2 class="main__heading--secondary"><div class="container">placeholders</div></h2><section class="main__item container item" id="placeholder-visuallyhidden"><h3 class="item__heading"><a class="item__name" href="#placeholder-visuallyhidden">visuallyhidden</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%visuallyhidden { 
+  @include visuallyhidden();
+ }" data-collapsed="%visuallyhidden { ... }"><code>%visuallyhidden { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Placeholder hide an element but make it accessible to screenreaders</p><blockquote><p><em>DO NOT</em> use in <code>@media</code> elements</p></blockquote></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.SomeClass {
+  @extend %visuallyhidden;
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.visuallyhidden, .SomeClass {
+   position: absolute;
+   overflow: hidden;
+   clip: rect(0 0 0 0);
+   height: 1px; width: 1px;
+   margin: -1px; padding: 0; border: 0;
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixin-visuallyhidden"><code>visuallyhidden</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Benjamin Boehm</p></li></ul></section><section class="main__item container item" id="placeholder-clearfix"><h3 class="item__heading"><a class="item__name" href="#placeholder-clearfix">clearfix</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="%clearfix { 
+  @include clearfix();
+ }" data-collapsed="%clearfix { ... }"><code>%clearfix { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Placeholder for clearfix</p><blockquote><p><em>DO NOT</em> use in <code>@media</code> elements</p></blockquote></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.SomeClass {
+  @extend %clearfix;
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.SomeClass::before,
+.SomeClass::after {
+    content: &quot; &quot;;
+    display: table;
+}
+.SomeClass::after {
+    clear: both;
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixin-clearfix"><code>clearfix</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Nicolas Gallagher</p></li></ul></section></section><section class="main__sub-section" id="structure helpers-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="variable-bemElementSeparator"><h3 class="item__heading"><a class="item__name" href="#variable-bemElementSeparator">bemElementSeparator</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$bemElementSeparator: &#39;__&#39; !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the default separator for <strong>block elements</strong></p></div><h3 class="item__sub-heading">Type</h3><p><code>Variable</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-element"><code>element</code></a></li></ul></section><section class="main__item container item" id="variable-bemModifierSeparator"><h3 class="item__heading"><a class="item__name" href="#variable-bemModifierSeparator">bemModifierSeparator</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$bemModifierSeparator: &#39;--&#39; !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set the default separator for <strong>block elements</strong></p></div><h3 class="item__sub-heading">Type</h3><p><code>Variable</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-containsModifier"><code>containsModifier</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-getBlock"><code>getBlock</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-modifier"><code>modifier</code></a></li></ul></section></section><section class="main__sub-section" id="structure helpers-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="function-containsModifier"><h3 class="item__heading"><a class="item__name" href="#function-containsModifier">containsModifier</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function containsModifier() { 
+  $selector: selectorToString( $selector );
+
+  @if str-index( $selector, $bemModifierSeparator ) {
+    @return true;
+  } @else {
+    @return false;
+  }
+ }" data-collapsed="@function containsModifier() { ... }"><code>@function containsModifier() { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-selectorToString"><code>selectorToString</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-bemModifierSeparator"><code>bemModifierSeparator</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-element"><code>element</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></section><section class="main__item container item" id="function-selectorToString"><h3 class="item__heading"><a class="item__name" href="#function-selectorToString">selectorToString</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function selectorToString() { 
+  $selector: inspect($selector); //cast to string
+  $selector: str-slice($selector, 2, -2); //remove brackets
+  @return $selector;
+ }" data-collapsed="@function selectorToString() { ... }"><code>@function selectorToString() { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-containsModifier"><code>containsModifier</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-getBlock"><code>getBlock</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-element"><code>element</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-modifier"><code>modifier</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></section><section class="main__item container item" id="function-getBlock"><h3 class="item__heading"><a class="item__name" href="#function-getBlock">getBlock</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function getBlock() { 
+  $selector: selectorToString($selector);
+  $modifierStart: str-index($selector, $bemModifierSeparator) - 1;
+  @return str-slice($selector, 0, $modifierStart);
+ }" data-collapsed="@function getBlock() { ... }"><code>@function getBlock() { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-selectorToString"><code>selectorToString</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-bemModifierSeparator"><code>bemModifierSeparator</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-element"><code>element</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://gist.github.com/kepek/7b5a4189690d6d73935b">https://gist.github.com/kepek/7b5a4189690d6d73935b</a></li><li><a href="https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321">https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://medium.com/@marcmintel">Marc Mintel</a></p></li></ul></section><section class="main__item container item" id="function-my-size-unit-check"><h3 class="item__heading"><a class="item__name" href="#function-my-size-unit-check">my-size-unit-check</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function my-size-unit-check($unitCheck) { 
+  @if unit( $unitCheck ) == &quot;em&quot; or unit( $unitCheck ) == &quot;%&quot; {
+    $unitSize: $unitCheck;
+  } @else if $useRem {
+    $unitSize: rem( $unitCheck );
+  } @else {
+    $unitSize: $unitCheck;
+  }
+  @return $unitSize;
+ }" data-collapsed="@function my-size-unit-check($unitCheck) { ... }"><code>@function my-size-unit-check($unitCheck) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>HELPER function for <code>my-size()</code> Mixin</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$unitCheck</code></th><td data-label="desc"><p>Value to check</p></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixin-my-size"><code>my-size</code></a></li></ul><h3 class="item__sub-heading">TODO's</h3><ul class="list-unstyled"><li></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://github.com/bboehm86" title="GitHub Page">Benjamin Böhm</a></p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="function-color-fit"><h3 class="item__heading"><a class="item__name" href="#function-color-fit">color-fit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color-fit($makeMeNew) { 
+
+  @if map-has-key($colorMatches, $makeMeNew) {
+    @return map-get($colorMatches, $makeMeNew);
+
+  } @else {
+
+    @if lightness($makeMeNew) &gt;= $colorFitThreshold {
+      @return darken( $makeMeNew , $colorFitAmountDarken );
+
+    } @else {
+      @return lighten( $makeMeNew , $colorFitAmountLighten );
+
+    }
+
+  }
+
+ }" data-collapsed="@function color-fit($makeMeNew) { ... }"><code>@function color-fit($makeMeNew) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Fit color (shade) to a given starting color</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$makeMeNew</code></th><td data-label="desc"><p>Color-value to fit new color to</p></td><td data-label="type"><code>Color</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.MyBeautifulColorClass {
+  background: #ef853b;
+  color: color-fit(#ef853b);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.MyBeautifulColorClass {
+  background: #ef853b;
+  color: #fbe6d7;
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-colorMatches"><code>colorMatches</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-colorFitThreshold"><code>colorFitThreshold</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-colorFitAmountDarken"><code>colorFitAmountDarken</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#variable-colorFitAmountLighten"><code>colorFitAmountLighten</code></a></li></ul><h3 class="item__sub-heading">TODO's</h3><ul class="list-unstyled"><li></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p><a href="https://github.com/bboehm86" title="GitHub Page">Benjamin Böhm</a></p></li></ul></section><section class="main__item container item" id="function-strip-unit"><h3 class="item__heading"><a class="item__name" href="#function-strip-unit">strip-unit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function strip-unit($value) { 
+  @return $value / ($value * 0 + 1);
+ }" data-collapsed="@function strip-unit($value) { ... }"><code>@function strip-unit($value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Divides $input by $base-font-size and appends &quot;rem&quot; unit $input is processed via unitize() if it contains multiple values</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$value</code></th><td data-label="desc"><p>Value to strip</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>$length : 42em;
+$int    : strip-unit($length);</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>$int    : 42;</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-em"><code>em</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://hugogiraudel.com/2013/08/12/sass-functions/">http://hugogiraudel.com/2013/08/12/sass-functions/</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Hugo Giraudel</p></li></ul></section><section class="main__item container item" id="function-rem"><h3 class="item__heading"><a class="item__name" href="#function-rem">rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function rem($input) { 
+  $output: null;
+
+  @if type-of($input) == list {
+    $output: unitize($input, rem);
+  } @else {
+    $output: (strip-unit($input) / strip-unit($baseFontSize)) * 1rem;
+  }
+
+  @return $output;
+ }" data-collapsed="@function rem($input) { ... }"><code>@function rem($input) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Divides $input by $baseFontSize and appends &quot;rem&quot; unit $input is processed via unitize() if it contains multiple values</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$input</code></th><td data-label="desc"><p>Pixel value</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.MyRemClass { padding: rem(32); }</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.MyRemClass { padding: 2rem; }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-unitize"><code>unitize</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-strip-unit"><code>strip-unit</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-my-size-unit-check"><code>my-size-unit-check</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-unitize"><code>unitize</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/justinskolnick/unitize/blob/master/_unitize.scss">https://github.com/justinskolnick/unitize/blob/master/_unitize.scss</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Justin Skolnick</p></li></ul></section><section class="main__item container item" id="function-em"><h3 class="item__heading"><a class="item__name" href="#function-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function em($input, $font-size: $unitless-font-size-base) { 
+  $output: null;
+
+  @if type-of($input) == list {
+    $output: unitize($input, em, $font-size);
+  } @else {
+    $output: (strip-unit($input) / strip-unit($baseFontSize)) * 1em;
+  }
+
+  @return $output;
+ }" data-collapsed="@function em($input, $font-size: $unitless-font-size-base) { ... }"><code>@function em($input, $font-size: $unitless-font-size-base) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Divides $input by the given base $font-size param and appends &quot;em&quot; unit $input is processed via unitize() if it contains multiple values</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$input</code></th><td data-label="desc"><p>Unitless Pixel value</p></td><td data-label="type"><code>Number</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-size</code></th><td data-label="desc"><p>Defaults to value of $unitless-font-size-base</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$unitless-font-size-base</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>.MyEmClass { padding: em(18, 12); }
+.MyEmClass2 { padding: em(20); }</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.MyEmClass { padding: 1.5em; }
+.MyEmClass2 { padding: 1.66667em; }</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-unitize"><code>unitize</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-strip-unit"><code>strip-unit</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-unitize"><code>unitize</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/justinskolnick/unitize/blob/master/_unitize.scss">https://github.com/justinskolnick/unitize/blob/master/_unitize.scss</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Justin Skolnick</p></li></ul></section><section class="main__item container item" id="function-unitize"><h3 class="item__heading"><a class="item__name" href="#function-unitize">unitize</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function unitize($list, $unit: px, $font-size: $unitless-font-size-base) { 
+  $output: null;                          // declare $output; to return new concatenated list
+
+  @each $value in $list {                 // iterate through $list
+
+    @if type-of($value) == number {       // skip strings
+
+      $value: $value / ($value * 0 + 1);
+
+      @if unitless($value) {              // respect values already assigned units
+
+        @if $unit == rem {                // rem conversions
+          $value: rem($value);
+        } @else if $unit == em {          // em conversions
+          $value: em($value, $font-size);
+        } @else {                         // everything else avoids conversion
+          $value: $value + $unit;
+        }
+
+      }
+
+    }
+
+    $output: append($output, $value);     // concatenate values
+  }
+
+  @return $output;
+ }" data-collapsed="@function unitize($list, $unit: px, $font-size: $unitless-font-size-base) { ... }"><code>@function unitize($list, $unit: px, $font-size: $unitless-font-size-base) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Converts the unitless numerical values in a given SASS list to values in a given unit</p><blockquote><p>See the SASS_REFERENCE for a description and examples of the &quot;list&quot; data type: <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#lists">http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#lists</a></p></blockquote><p>Accepts optional $font-size param (defaulting to $unitless-font-size-base) for &quot;em&quot; conversions</p><h3 id="notes-">NOTES:</h3><blockquote><p>CSS font shorthand (e.g., &quot;bold 12/18 Helvetica, Arial, sans-serif&quot;) is not yet supported;</p><p>see &quot;Division and /&quot;: <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#division-and-slash">http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#division-and-slash</a></p></blockquote></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter</span>Name</th><th scope="col"><span class="visually-hidden">parameter</span>Description</th><th scope="col"><span class="visually-hidden">parameter</span>Type</th><th scope="col"><span class="visually-hidden">parameter</span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$list</code></th><td data-label="desc"><p>Unitless Pixel value</p></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden">none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$unit</code></th><td data-label="desc"><p>Unit</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>px</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$font-size</code></th><td data-label="desc"><p>Defaults to value of $unitless-font-size-base</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>$unitless-font-size-base</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Usage</p></div><pre class="example__code language-scss"><code>See CSS rulesets below the function</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#function-em"><code>em</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#function-rem"><code>rem</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#function-em"><code>em</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/justinskolnick/unitize/blob/master/_unitize.scss">https://github.com/justinskolnick/unitize/blob/master/_unitize.scss</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Justin Skolnick</p></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --><span class="project-info__name">SassDoc</span><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

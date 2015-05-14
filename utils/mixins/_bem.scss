@@ -1,0 +1,214 @@
+// **------------------------------------* \\
+// * MIXIN: element() ; modifier()
+// **------------------------------------* \\
+
+// fill in the right classes just below the selector (/* .123 */) for simple comparison
+$bemDebugClasses: false !default;
+
+/// Set the default separator for **block elements**
+/// @type Variable
+/// @group Structure Helpers
+$bemElementSeparator: '__' !default;
+
+/// Set the default separator for **block elements**
+/// @type Variable
+/// @group Structure Helpers
+$bemModifierSeparator: '--' !default;
+
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+@function containsModifier( $selector ) {
+  $selector: selectorToString( $selector );
+
+  @if str-index( $selector, $bemModifierSeparator ) {
+    @return true;
+  } @else {
+    @return false;
+  }
+}
+
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+@function selectorToString($selector) {
+  $selector: inspect($selector); //cast to string
+  $selector: str-slice($selector, 2, -2); //remove brackets
+  @return $selector;
+}
+
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+@function getBlock($selector) {
+  $selector: selectorToString($selector);
+  $modifierStart: str-index($selector, $bemModifierSeparator) - 1;
+  @return str-slice($selector, 0, $modifierStart);
+}
+
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+@mixin b($block) {
+  .#{$block} {
+    @content;
+  }
+}
+
+/// Block Element
+/// @access public
+/// @group Structure Helpers
+///
+/// @author Original: [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+///
+/// @todo
+///    * Fix nesting in hover eg: `.bem-test:hover .bem-test--M11` should be `.bem-test--M11.bem-test:hover`
+///    * Fix deep nesting in hover eg: `.bem-test:hover .bem-test--M11 .bem-test__E11 .bem-test__E21` should be `.bem-test--M11.bem-test:hover .bem-test__E11__E21`
+///
+/// @param {String} $element - Elements name
+///
+/// @example scss - Usage
+///  .block {
+///    /* CSS declarations for `.block` */
+///    @include element('element') {
+///       /* CSS declarations for `.block__element` */
+///    }
+///  }
+///
+/// @example css - CSS output
+///  .block {
+///    /* CSS declarations for `.block` */
+///    .block__element {
+///       /* CSS declarations for `.block__element` */
+///    }
+///  }
+@mixin element($element) {
+  $myParent: &;
+  $myParentLast: nth( $myParent, length($myParent) );
+  $isHover:  str-index( selectorToString($myParent) , hover );
+  $isHoverMod:  str-index( selectorToString($myParentLast) , hover );
+  $isNested: str-index( selectorToString($myParent) , " " );
+  $isNestedMod: str-index( selectorToString($myParentLast) , " " );
+
+  @at-root {
+    @if containsModifier($myParent) {
+      //      $myParent: nth(&, length(&));
+      @if $isHoverMod {
+        $myParentBlock: str-slice(nth($myParentLast, 1), 1, -7);
+
+        #{$myParent} #{$myParentBlock+$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&} */ }
+          @content;
+        }
+
+      } @else {
+
+        @if $isNestedMod {
+          #{$myParentLast+$bemElementSeparator+$element} {
+            @if $bemDebugClasses { /* #{&} */ }
+            @content;
+          }
+        } @else {
+          $block: getBlock( selectorToString($myParent) );
+          & .#{$block+$bemElementSeparator+$element} {
+            @if $bemDebugClasses { /* #{&} */ }
+            @content;
+          }
+        }
+
+      }
+    } @else {
+      @if $isHover and not $isNested {
+        $myParent: str-slice( selectorToString($myParent) , 1, -8); // 6 chars (:hover) + brackets
+
+        & #{$myParent}#{$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&} */ }
+          @content;
+        }
+      } @else {
+        &#{$bemElementSeparator+$element} {
+          @if $bemDebugClasses { /* #{&} */ }
+          @content;
+        }
+      }
+
+    }
+  }
+}
+
+/// @alias element
+@mixin e($element) {
+  @include element($element)  {
+    @content;
+  }
+}
+
+/// Block Modifier
+/// @access public
+/// @group Structure Helpers
+///
+/// @author [Marc Mintel](https://medium.com/@marcmintel)
+/// @link https://gist.github.com/kepek/7b5a4189690d6d73935b
+/// @link https://medium.com/@marcmintel/pushing-bem-to-the-next-level-with-sass-3-4-5239d2371321
+///
+/// @param {String} $modifier - Modifiers name
+///
+/// @example scss - Usage
+///  .block {
+///    /* CSS declarations for `.block` */
+///    @include modifier('modifier') {
+///       /* CSS declarations for `.block--modifier */
+///    }
+///  }
+///
+/// @example css - CSS output
+///  .block {
+///    /* CSS declarations for `.block` */
+///    .block--modifier {
+///       /* CSS declarations for `.block--modifier */
+///    }
+///  }
+@mixin modifier($modifier) {
+
+  $myParent: selectorToString(&);
+  $isHover:  str-index( $myParent , hover );
+  $isNested: str-index( $myParent , " " );
+
+  @at-root {
+    @if $isHover and not $isNested {
+      $myParent: selectorToString(nth($myParent, length($myParent)));
+      $myParent: str-slice($myParent, 1, -7);
+
+      & .#{$myParent}#{$bemModifierSeparator+$modifier} {
+        @if $bemDebugClasses { /* #{&} */ }
+        @content;
+      }
+    } @else {
+      &#{$bemModifierSeparator+$modifier} {
+        @if $bemDebugClasses { /* #{&} */ }
+        @content;
+      }
+    }
+  }
+}
+
+/// @alias modifier
+@mixin m($modifier) {
+  @include modifier($modifier)  {
+    @content;
+  }
+}

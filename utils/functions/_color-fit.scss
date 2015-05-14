@@ -1,0 +1,68 @@
+// **------------------------------------* \\
+// * FUNCTION: color-fit()
+// **------------------------------------* \\
+
+/// Map to set *manualy* **contrast colors** for **color-fit()** function
+/// > **DON'T** use *quotes*! The value won't be recognised as `$color`
+/// @type Map | Variable
+/// @group Settings
+/// @example scss - Usage
+///   $colorMatches: (
+///     #fff: #0c05b5,
+///     #000: #333
+///   };
+$colorMatches: ( ) !default;
+
+/// Set default **threshold** for lighten or darken colors in **color-fit()** function
+/// @type Variable
+/// @group Settings
+$colorFitThreshold: 68% !default;
+
+/// Set the default amount of **darken**ing fot the colors in **color-fit()** function
+/// @type Variable
+/// @group Settings
+$colorFitAmountDarken: 60% !default;
+
+/// Set the default amount of **lighten**ing fot the colors in **color-fit()** function
+/// @type Variable
+/// @group Settings
+$colorFitAmountLighten: 50% !default;
+
+/// Fit color (shade) to a given starting color
+///
+/// @author [Benjamin Böhm](https://github.com/bboehm86 "GitHub Page")
+///
+/// @access public
+/// @todo
+///
+/// @param {Color} $makeMeNew - Color-value to fit new color to
+///
+/// @example scss - Usage
+///   .MyBeautifulColorClass {
+///     background: #ef853b;
+///     color: color-fit(#ef853b);
+///   }
+///
+/// @example css - CSS output
+///   .MyBeautifulColorClass {
+///     background: #ef853b;
+///     color: #fbe6d7;
+///   }
+@function color-fit($makeMeNew) {
+
+  @if map-has-key($colorMatches, $makeMeNew) {
+    @return map-get($colorMatches, $makeMeNew);
+
+  } @else {
+
+    @if lightness($makeMeNew) >= $colorFitThreshold {
+      @return darken( $makeMeNew , $colorFitAmountDarken );
+
+    } @else {
+      @return lighten( $makeMeNew , $colorFitAmountLighten );
+
+    }
+
+  }
+
+}
