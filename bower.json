@@ -1,6 +1,23 @@
 {
   "name": "bennis-sass-toolbox",
-  "private": true,
+  "description": "A couple of my most used SASS mixins",
+  "version": "0.0.1",
+  "homepage": "https://github.com/bboehm86/",
+  "authors": [
+    "Benjamin Boehm"
+  ],
+  "keywords": [
+    "sass",
+    "mixins",
+    "functions"
+  ],
+  "main": [
+    "utils/_settings.global.scss",
+    "utils/_import.functions.scss",
+    "utils/_import.mixins.scss"
+  ],
   "dependencies": {
+  },
+  "devDependencies": {
   }
 }
