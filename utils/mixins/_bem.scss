@@ -97,53 +97,94 @@ $bemModifierSeparator: '--' !default;
 ///    }
 ///  }
 @mixin element($element) {
-  $myParent: &;
-  $myParentLast: nth( $myParent, length($myParent) );
-  $isHover:  str-index( selectorToString($myParent) , hover );
-  $isHoverMod:  str-index( selectorToString($myParentLast) , hover );
-  $isNested: str-index( selectorToString($myParent) , " " );
-  $isNestedMod: str-index( selectorToString($myParentLast) , " " );
+  $parent:            &;
+  $parentString:      selectorToString( $parent );
+  $parentLast:        nth( $parent, length($parent) );
+  $parentLastString:  selectorToString( $parentLast );
+  $parentIsModifier:  str-index( $parentString, $bemModifierSeparator );
+  $parentIsHover:     str-index( $parentString , hover );
+  $parentIsNested:    str-index( $parentLastString , " " );
 
   @at-root {
-    @if containsModifier($myParent) {
-      //      $myParent: nth(&, length(&));
-      @if $isHoverMod {
-        $myParentBlock: str-slice(nth($myParentLast, 1), 1, -7);
 
-        #{$myParent} #{$myParentBlock+$bemElementSeparator+$element} {
-          @if $bemDebugClasses { /* #{&} */ }
-          @content;
+    @if $parentIsModifier and $parentIsHover and $parentIsNested {
+//      @for $i from 1 through length($parentLast) {
+//        $spaceAt: str-index( $parentLastString , " " );
+//        $parentLastString: str-slice($parentLastString, 0, $spaceAt);
+//      }
+
+      #{$parentLast+$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* is $parentIsModifier + is $parentIsHover + is $parentIsNested */
+          /* #{&} - generated */
         }
-
-      } @else {
-
-        @if $isNestedMod {
-          #{$myParentLast+$bemElementSeparator+$element} {
-            @if $bemDebugClasses { /* #{&} */ }
-            @content;
-          }
-        } @else {
-          $block: getBlock( selectorToString($myParent) );
-          & .#{$block+$bemElementSeparator+$element} {
-            @if $bemDebugClasses { /* #{&} */ }
-            @content;
-          }
-        }
-
+        @content;
       }
-    } @else {
-      @if $isHover and not $isNested {
-        $myParent: str-slice( selectorToString($myParent) , 1, -8); // 6 chars (:hover) + brackets
 
-        & #{$myParent}#{$bemElementSeparator+$element} {
-          @if $bemDebugClasses { /* #{&} */ }
-          @content;
+    } @else if $parentIsModifier and $parentIsHover and not $parentIsNested {
+
+      $modStart: str-index($parentString, $bemModifierSeparator) - 2;
+      $block: str-slice($parentLastString, 0 , $modStart);
+
+      & .#{$block+$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* is $parentIsModifier + is $parentIsHover + NOT $parentIsNested */
+          /* #{&} - generated */
         }
-      } @else {
-        &#{$bemElementSeparator+$element} {
-          @if $bemDebugClasses { /* #{&} */ }
-          @content;
+        @content;
+      }
+    } @else if $parentIsModifier and not $parentIsHover and not $parentIsNested {
+
+      $block: getParentBlock( $parentString);
+
+      & .#{$block+$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* #{&} - generated */
+          /* is $parentIsModifier + NOT $parentIsHover + NOT $parentIsNested */
         }
+        @content;
+      }
+
+    } @else if not $parentIsModifier and $parentIsHover and not $parentIsNested {
+
+      $myParentBlock: str-slice(nth($parentLast, 1), 1, -7); // slice up "hover"
+
+      & #{$myParentBlock+$bemElementSeparator+$element}{
+        @if $bemDebugClasses {
+          /* NOT $parentIsModifier + is $parentIsHover + NOT $parentIsNested */
+          /* #{&} - generated */
+        }
+        @content;
+      }
+
+    } @else if not $parentIsModifier and $parentIsHover and $parentIsNested {
+
+      &#{$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* NOT $parentIsModifier + is $parentIsHover + is $parentIsNested */
+          /* #{&} - generated */
+        }
+        @content;
+      }
+
+    } @else if not $parentIsModifier and not $parentIsHover and $parentIsNested {
+
+      &#{$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* #{&} ?? */
+          /* NOT $parentIsModifier + NOT $parentIsHover + is $parentIsNested */
+        }
+        @content;
+      }
+
+    } @else {
+
+      &#{$bemElementSeparator+$element} {
+        @if $bemDebugClasses {
+          /* NOT $parentIsModifier + NOT $parentIsHover */
+          /* #{&} - generated */
+        }
+        @content;
       }
 
     }
@@ -184,21 +225,37 @@ $bemModifierSeparator: '--' !default;
 ///  }
 @mixin modifier($modifier) {
 
-  $myParent: selectorToString(&);
-  $isHover:  str-index( $myParent , hover );
-  $isNested: str-index( $myParent , " " );
-
+  $myParentBlock: &;
+  $myParentBlockLast: nth( $myParentBlock, length($myParentBlock) );
+  $isHover:  str-index( selectorToString($myParentBlock) , hover ); // NULL or NUMBER
+  $isModifier: str-index( selectorToString($myParentBlock) , $bemModifierSeparator ); // NULL or NUMBER
+  $isNested: str-index( selectorToString($myParentBlock) , " " ); // NULL or NUMBER -- Mod or Hover
   @at-root {
-    @if $isHover and not $isNested {
-      $myParent: selectorToString(nth($myParent, length($myParent)));
-      $myParent: str-slice($myParent, 1, -7);
+    @if $isNested {
+      $myParent: str-slice( selectorToString($myParentBlock), 2, -8);
+      /* MOD-isNested */
+      &#{$bemModifierSeparator+$modifier} {
+        @if $bemDebugClasses { /* #{&} */ }
+        @content;
+      }
 
-      & .#{$myParent}#{$bemModifierSeparator+$modifier} {
+    } @else if $isHover {
+      $myParent: str-slice( selectorToString($myParentBlock), 2, -8);
+
+      /* MOD-isHover */
+      .#{$myParent}#{$bemModifierSeparator+$modifier}:hover {
+        @if $bemDebugClasses { /* #{&} PETERPAN */ }
+        @content;
+      }
+    } @else if $isHover and $isModifier {
+      .isHover-isModifier {
         @if $bemDebugClasses { /* #{&} */ }
         @content;
       }
     } @else {
-      &#{$bemModifierSeparator+$modifier} {
+
+      /* MOD-TopLevel*/
+      &#{$bemModifierSeparator+$modifier}  {
         @if $bemDebugClasses { /* #{&} */ }
         @content;
       }
